@@ -14,7 +14,7 @@ namespace SpaceX.Api.Controllers
             _spaceXService = spaceXService;
         }
         /// <summary>
-        /// Fetch all the SpaceX launches including past and upcoming aunches
+        /// Fetch all the SpaceX launches including past and upcoming launches
         /// </summary>
         /// <returns>List of Launches</returns>
         [Route("api/[controller]")]
