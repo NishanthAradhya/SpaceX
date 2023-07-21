@@ -66,8 +66,7 @@ namespace SpaceX.Api.Controllers
         /// </summary>
         /// <param name="id">Flight Number</param>
         /// <returns>Launch details of the gievn flight number</returns>
-        /// <exception cref="BadHttpRequestException"></exception>
-        /// <exception cref="KeyNotFoundException"></exception>
+        /// <exception cref="NotFoundResult"></exception>
         [Route("api/[controller]/{id}")]
         [HttpGet]
         public async Task<ActionResult> GetLaunchByFlightNumberAsync(string id)

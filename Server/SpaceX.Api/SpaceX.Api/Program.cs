@@ -1,5 +1,6 @@
 using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
+using SpaceX.Api.Middleware;
 using SpaceX.Api.Service;
 using System.Reflection;
 using TakeNotes.Middleware;
@@ -30,6 +31,7 @@ builder.Services.AddSwaggerGen(c =>
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     c.IncludeXmlComments(xmlPath);
+    c.DocumentFilter<CustomDocumentFilter>();
 });
 builder.Logging.AddFilter("System", LogLevel.Debug);
 builder.Services.AddTransient<ILaunchService, LaunchService>();

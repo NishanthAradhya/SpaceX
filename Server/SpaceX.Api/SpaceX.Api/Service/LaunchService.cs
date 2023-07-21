@@ -54,12 +54,12 @@ namespace SpaceX.Api.Service
         /// <returns>launch details</returns>
         public async Task<LaunchModel> GetLaunchByIdAsync(string flight_number)
         {
-            LaunchModel launch = new LaunchModel();
+            LaunchModel launch = default!;
             using (HttpResponseMessage res = await _httpClient.GetAsync($"{_httpClient.BaseAddress}/launches/{flight_number}"))
             {
                 if (!res.IsSuccessStatusCode)
                 {
-                    return null; 
+                    return launch; 
                 }
                 launch = await res.Content.ReadFromJsonAsync<LaunchModel>();
 
